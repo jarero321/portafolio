@@ -1,8 +1,18 @@
+'use client';
+
 import { Terminal } from '@/components/Terminal';
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen items-center justify-center p-4 sm:p-8">
+    <main
+      style={{
+        display: 'flex',
+        minHeight: '100vh',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '1rem',
+      }}
+    >
       <Terminal />
     </main>
   );

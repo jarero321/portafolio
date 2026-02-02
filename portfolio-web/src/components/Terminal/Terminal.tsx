@@ -10,7 +10,6 @@ export function Terminal() {
   const { lines, input, setInput, isProcessing, handleKeyDown } = useTerminal();
   const bodyRef = useRef<HTMLDivElement>(null);
 
-  // Auto-scroll to bottom when new lines are added
   useEffect(() => {
     if (bodyRef.current) {
       bodyRef.current.scrollTop = bodyRef.current.scrollHeight;
@@ -18,7 +17,7 @@ export function Terminal() {
   }, [lines]);
 
   return (
-    <div className="terminal-window w-full max-w-4xl">
+    <div className="terminal-window" style={{ width: '100%', maxWidth: '900px' }}>
       <TerminalHeader />
       <div ref={bodyRef} className="terminal-body">
         {lines.map((line) => (
