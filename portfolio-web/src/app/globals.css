@@ -123,6 +123,14 @@ body {
   letter-spacing: -0.02em;
   margin-bottom: 0.75rem;
   color: var(--text-primary);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.3em;
+}
+
+.hero-greeting {
+  white-space: nowrap;
 }
 
 .hero-name {
@@ -130,6 +138,7 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  white-space: nowrap;
 }
 
 .hero-subtitle {
@@ -431,8 +440,13 @@ body {
 
   .hero-title {
     font-size: 1.75rem;
-    line-height: 1.3;
-    word-break: keep-all;
+    line-height: 1.2;
+    flex-direction: column;
+    gap: 0.1em;
+  }
+
+  .hero-name {
+    font-size: 2.25rem;
   }
 
   .hero-subtitle {

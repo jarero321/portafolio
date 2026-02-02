@@ -27,7 +27,8 @@ export default function Home() {
       <main className="landing-main">
         <div className="hero-text">
           <h1 className="hero-title">
-            Hi, I'm <span className="hero-name">Carlos</span>
+            <span className="hero-greeting">Hi, I'm</span>
+            <span className="hero-name">Carlos</span>
           </h1>
           <p className="hero-subtitle">
             Full Stack Developer crafting digital experiences
