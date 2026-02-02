@@ -598,7 +598,7 @@ const fortune: Command = {
   execute: () => {
     const fortunes = [
       '"First, solve the problem. Then, write the code." – John Johnson',
-      '"Code is like humor. When you have to explain it, it's bad." – Cory House',
+      '"Code is like humor. When you have to explain it, it\'s bad." – Cory House',
       '"Any fool can write code that a computer can understand. Good programmers write code that humans can understand." – Martin Fowler',
       '"The best error message is the one that never shows up." – Thomas Fuchs',
       '"Talk is cheap. Show me the code." – Linus Torvalds',
