@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
 :root {
-  /* Apple Dark Theme */
   --bg-primary: #000000;
   --bg-secondary: #0d0d0d;
   --bg-tertiary: #1c1c1e;
@@ -48,7 +47,6 @@ body {
   color: white;
 }
 
-/* Landing Page */
 .landing {
   height: 100vh;
   height: 100dvh;
@@ -77,7 +75,6 @@ body {
   align-items: center;
 }
 
-/* Language Switcher */
 .lang-switcher {
   display: flex;
   gap: 0.5rem;
@@ -274,7 +271,6 @@ body {
   color: var(--text-muted);
 }
 
-/* Terminal */
 .terminal-window {
   background: var(--terminal-bg);
   border: 1px solid var(--border-subtle);
@@ -328,7 +324,6 @@ body {
   line-height: 1.7;
 }
 
-/* Scrollbar */
 .terminal-body::-webkit-scrollbar {
   width: 6px;
 }
@@ -342,7 +337,6 @@ body {
   border-radius: 3px;
 }
 
-/* Terminal lines */
 .terminal-line {
   white-space: pre-wrap;
   word-break: break-word;
@@ -364,7 +358,6 @@ body {
   color: var(--text-muted);
 }
 
-/* Thinking indicator */
 .thinking-indicator {
   display: flex;
   align-items: center;
@@ -392,7 +385,6 @@ body {
   font-size: 0.9em;
 }
 
-/* Input */
 .terminal-input-wrapper {
   display: flex;
   align-items: center;
@@ -421,7 +413,6 @@ body {
   opacity: 0.6;
 }
 
-/* Animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -433,7 +424,6 @@ body {
   }
 }
 
-/* Language transition animations */
 .landing-transition-in {
   animation: landingFadeIn 0.3s ease-out forwards;
 }
@@ -464,7 +454,6 @@ body {
   }
 }
 
-/* ANSI colors */
 .ansi-bold { font-weight: 700; }
 .ansi-dim { opacity: 0.7; }
 .ansi-italic { font-style: italic; }
@@ -488,7 +477,6 @@ body {
 .ansi-bright-cyan { color: #a7e8e8; }
 .ansi-bright-white { color: #ffffff; }
 
-/* Responsive */
 @media (max-width: 640px) {
   .landing-header {
     padding: 0.75rem 1rem;
@@ -585,7 +573,6 @@ body {
   }
 }
 
-/* Extra small devices */
 @media (max-width: 380px) {
   .hero-title {
     font-size: 1.25rem;

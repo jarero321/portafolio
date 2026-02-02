@@ -1,7 +1,3 @@
-/**
- * Formatting utilities for terminal output
- */
-
 export function skillBar(level: number, width = 20): string {
   const filled = Math.round((level / 100) * width);
   const empty = width - filled;
