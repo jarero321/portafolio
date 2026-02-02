@@ -433,6 +433,37 @@ body {
   }
 }
 
+/* Language transition animations */
+.landing-transition-in {
+  animation: landingFadeIn 0.3s ease-out forwards;
+}
+
+.landing-transition-out {
+  animation: landingFadeOut 0.2s ease-in forwards;
+}
+
+@keyframes landingFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes landingFadeOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+}
+
 /* ANSI colors */
 .ansi-bold { font-weight: 700; }
 .ansi-dim { opacity: 0.7; }

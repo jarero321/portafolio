@@ -1,8 +1,9 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, use } from 'react';
+import { useRouter } from 'next/navigation';
 import { Terminal } from '@/components/Terminal';
-import { setLanguage, getLanguage, onLanguageChange, t, type Language } from '@/lib/i18n';
+import { getLanguage, onLanguageChange, t, type Language } from '@/lib/i18n';
 
 const languages: { code: Language; flag: string; label: string }[] = [
   { code: 'en', flag: '🇺🇸', label: 'EN' },
@@ -10,8 +11,11 @@ const languages: { code: Language; flag: string; label: string }[] = [
   { code: 'bin', flag: '🤖', label: '01' },
 ];
 
-export default function Home() {
-  const [lang, setLang] = useState<Language>('en');
+export default function Home({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = use(params);
+  const router = useRouter();
+  const [lang, setLang] = useState<Language>((locale as Language) || 'en');
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   useEffect(() => {
     // Sync with global state
@@ -23,7 +27,16 @@ export default function Home() {
   }, []);
 
   const handleLanguageChange = (newLang: Language) => {
-    setLanguage(newLang);
+    if (newLang === lang) return;
+
+    // Start transition animation
+    setIsTransitioning(true);
+
+    // Navigate to new locale after fade out
+    setTimeout(() => {
+      router.push(`/${newLang}`);
+      setIsTransitioning(false);
+    }, 200);
   };
 
   const commandHints = [
@@ -34,7 +47,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="landing">
+    <div className={`landing ${isTransitioning ? 'landing-transition-out' : 'landing-transition-in'}`}>
       <div className="landing-bg" />
 
       <header className="landing-header">
@@ -46,6 +59,7 @@ export default function Home() {
               onClick={() => handleLanguageChange(l.code)}
               className={`lang-btn ${lang === l.code ? 'lang-btn-active' : ''}`}
               title={l.label}
+              disabled={isTransitioning}
             >
               <span className="lang-flag">{l.flag}</span>
             </button>
