@@ -3,7 +3,7 @@
 import { useState, useEffect, use } from 'react';
 import { useRouter } from 'next/navigation';
 import { Terminal } from '@/components/Terminal';
-import { getLanguage, onLanguageChange, t, type Language } from '@/lib/i18n';
+import { t, type Language } from '@/lib/i18n';
 
 const languages: { code: Language; flag: string; label: string }[] = [
   { code: 'en', flag: '🇺🇸', label: 'EN' },
@@ -14,17 +14,12 @@ const languages: { code: Language; flag: string; label: string }[] = [
 export default function Home({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = use(params);
   const router = useRouter();
-  const [lang, setLang] = useState<Language>((locale as Language) || 'en');
+  const lang = locale as Language;
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
     setIsReady(true);
-    setLang(getLanguage());
-    const unsubscribe = onLanguageChange((newLang) => {
-      setLang(newLang);
-    });
-    return unsubscribe;
   }, []);
 
   const handleLanguageChange = (newLang: Language) => {
