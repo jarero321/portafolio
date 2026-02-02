@@ -2,6 +2,17 @@ import type { Command } from '@/types';
 import { portfolio, asciiArt } from '@/data/portfolio';
 import { registry } from './registry';
 
+// Check if mobile
+function isMobile(): boolean {
+  if (typeof window === 'undefined') return false;
+  return window.innerWidth < 640;
+}
+
+// Get appropriate logo
+function getLogo(): string {
+  return isMobile() ? asciiArt.logoMobile : asciiArt.logo;
+}
+
 // Helper to format skill bar
 function skillBar(level: number, width = 20): string {
   const filled = Math.round((level / 100) * width);
@@ -47,8 +58,9 @@ const about: Command = {
   name: 'about',
   description: 'About me',
   execute: () => {
+    const logo = getLogo();
     const lines = [
-      `\x1b[36m${asciiArt.logo}\x1b[0m`,
+      `\x1b[36m${logo}\x1b[0m`,
       '',
       `\x1b[1m${portfolio.name}\x1b[0m`,
       `\x1b[90m${portfolio.title}\x1b[0m`,
@@ -196,8 +208,9 @@ const welcome: Command = {
   name: 'welcome',
   description: 'Show welcome message',
   execute: () => {
+    const logo = getLogo();
     const lines = [
-      `\x1b[36m${asciiArt.logo}\x1b[0m`,
+      `\x1b[36m${logo}\x1b[0m`,
       '',
       `\x1b[1mWelcome to ${portfolio.name}'s Terminal Portfolio\x1b[0m`,
       '',
