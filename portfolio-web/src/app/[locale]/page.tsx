@@ -16,9 +16,10 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
   const router = useRouter();
   const [lang, setLang] = useState<Language>((locale as Language) || 'en');
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
-    // Sync with global state
+    setIsReady(true);
     setLang(getLanguage());
     const unsubscribe = onLanguageChange((newLang) => {
       setLang(newLang);
@@ -27,15 +28,12 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
   }, []);
 
   const handleLanguageChange = (newLang: Language) => {
-    if (newLang === lang) return;
+    if (newLang === lang || isTransitioning) return;
 
-    // Start transition animation
     setIsTransitioning(true);
 
-    // Navigate to new locale after fade out
     setTimeout(() => {
       router.push(`/${newLang}`);
-      setIsTransitioning(false);
     }, 200);
   };
 
@@ -46,8 +44,14 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
     { cmd: 'contact', desc: t('contactHint') },
   ];
 
+  const landingClass = isTransitioning
+    ? 'landing landing-transition-out'
+    : isReady
+      ? 'landing landing-transition-in'
+      : 'landing';
+
   return (
-    <div className={`landing ${isTransitioning ? 'landing-transition-out' : 'landing-transition-in'}`}>
+    <div className={landingClass}>
       <div className="landing-bg" />
 
       <header className="landing-header">
