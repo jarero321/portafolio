@@ -4,6 +4,7 @@ import { useState, useCallback, useRef, useEffect } from 'react';
 import type { TerminalLine } from '@/types';
 import { registry } from '@/lib/commands/registry';
 import { parseCommand } from '@/lib/commands/parser';
+import { getLanguage } from '@/lib/i18n';
 
 import '@/lib/commands';
 
@@ -11,18 +12,57 @@ function generateId(): string {
   return Math.random().toString(36).substring(2, 9);
 }
 
-const thinkingMessages = [
-  'Processing...',
-  'Thinking...',
-  'Computing...',
-  'Analyzing...',
-  'Loading data...',
-  'Fetching info...',
-  'Almost there...',
-];
+const thinkingMessages = {
+  en: [
+    'Copying from StackOverflow...',
+    'Deleting node_modules...',
+    'Mass googling...',
+    'Clearing cache, just in case...',
+    'Blaming the intern...',
+    'Reticulating splines...',
+    'Consulting ChatGPT...',
+    'Hiding console.logs...',
+    'Pretending to work...',
+    'Adding !important everywhere...',
+    'Praying to the demo gods...',
+    'Turning it off and on again...',
+    'Is it a cache issue?...',
+    'Blaming DNS...',
+    'git reset --hard...',
+    'Reading the docs... just kidding...',
+    'Mass Ctrl+Z\'ing...',
+  ],
+  es: [
+    'Copiando de StackOverflow...',
+    'Borrando node_modules...',
+    'Googleando masivamente...',
+    'Limpiando caché, por si acaso...',
+    'Culpando al becario...',
+    'Reticulando splines...',
+    'Consultando a ChatGPT...',
+    'Escondiendo console.logs...',
+    'Fingiendo que trabajo...',
+    'Añadiendo !important...',
+    'Rezando a los dioses del deploy...',
+    'Apagando y encendiendo...',
+    '¿Será problema de caché?...',
+    'Culpando al DNS...',
+    'Volviendo al último commit...',
+  ],
+  bin: [
+    '01000011 01101111 01110000 01111001 01101001 01101110 01100111...',
+    '01000100 01100101 01101100 01100101 01110100 01101001 01101110 01100111...',
+    '01010000 01110010 01101111 01100011 01100101 01110011 01110011...',
+    '01000010 01100101 01100101 01110000 00100000 01100010 01101111 01101111 01110000...',
+    '01001000 01100001 01100011 01101011 01101001 01101110 01100111...',
+    '01010010 01100101 01100010 01101111 01101111 01110100 01101001 01101110 01100111...',
+  ],
+};
 
 function getRandomThinkingMessage(): string {
-  return thinkingMessages[Math.floor(Math.random() * thinkingMessages.length)];
+  const lang = getLanguage();
+  const messages = thinkingMessages[lang];
+  return messages[Math.floor(Math.random() * messages.length)];
 }
 
 export function useTerminal() {
