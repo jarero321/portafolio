@@ -1,36 +1,158 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
 
-## Getting Started
+# Terminal Portfolio
 
-First, run the development server:
+![Next.js](https://img.shields.io/badge/Next.js_16-000000?logo=next.js&logoColor=white)
+![React](https://img.shields.io/badge/React_19-61DAFB?logo=react&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
+![Tailwind](https://img.shields.io/badge/Tailwind_CSS-06B6D4?logo=tailwindcss&logoColor=white)
+
+**Interactive terminal-style portfolio with 20+ commands, i18n support, and glassmorphism UI.**
+
+[Live Demo](https://jarero.dev) · [Features](#features) · [Commands](#commands) · [Customization](#customization)
+
+</div>
+
+---
+
+## Features
+
+| Feature | Description |
+|---------|-------------|
+| **Terminal UI** | Authentic terminal experience with typing effects |
+| **20+ Commands** | `about`, `skills`, `projects`, `experience`, and easter eggs |
+| **i18n Support** | English, Spanish, and Binary language modes |
+| **Glassmorphism** | macOS-inspired design with blur effects |
+| **Responsive** | Optimized for desktop and mobile |
+| **Keyboard Shortcuts** | Tab completion, history navigation, Ctrl+L/C |
+
+## Commands
+
+### Portfolio Commands
+
+| Command | Description |
+|---------|-------------|
+| `help` | Show available commands |
+| `about` | Personal info and bio |
+| `skills` | Technical skills with categories |
+| `projects` | Portfolio projects |
+| `experience` | Work history |
+| `education` | Academic background |
+| `contact` | Contact information |
+
+### System Commands
+
+| Command | Description |
+|---------|-------------|
+| `clear` | Clear terminal |
+| `lang [en\|es\|bin]` | Change language |
+| `ls`, `pwd`, `whoami` | Linux-style commands |
+
+### Easter Eggs
+
+| Command | Description |
+|---------|-------------|
+| `coffee` | Virtual coffee |
+| `matrix` | Enter the Matrix |
+| `cowsay [msg]` | ASCII cow |
+| `fortune` | Random dev wisdom |
+| `joke` | Dev jokes |
+
+## Quick Start
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+# Clone
+git clone https://github.com/jarero321/portafolio.git
+cd portafolio
+
+# Install
+pnpm install
+
+# Run
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+├── app/[locale]/        # Next.js App Router + i18n
+├── components/Terminal/ # Terminal UI components
+├── lib/
+│   ├── commands/        # Command implementations
+│   │   ├── main.ts      # Core commands
+│   │   ├── linux.ts     # Linux commands
+│   │   └── fun.ts       # Easter eggs
+│   ├── hooks/           # useTerminal hook
+│   └── i18n.ts          # Translations
+├── data/portfolio.ts    # Your data here
+└── types/               # TypeScript types
+```
 
-## Learn More
+## Customization
 
-To learn more about Next.js, take a look at the following resources:
+### Edit Your Data
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Update `src/data/portfolio.ts`:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```typescript
+export const portfolio = {
+  name: 'Your Name',
+  title: 'Your Title',
+  bio: 'Your bio...',
 
-## Deploy on Vercel
+  skills: [
+    { name: 'TypeScript', level: 90, category: 'frontend' }
+  ],
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+  projects: [
+    { name: 'Project', description: '...', tech: ['Next.js'], featured: true }
+  ],
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+  experience: [
+    { company: 'Company', role: 'Role', period: '2024', description: '...' }
+  ]
+}
+```
+
+### Add Custom Commands
+
+Create `src/lib/commands/custom.ts`:
+
+```typescript
+import { registry } from './registry';
+
+registry.register({
+  name: 'hello',
+  description: 'Say hello',
+  execute: () => ({ output: 'Hello, World!' })
+});
+```
+
+Import in `src/lib/commands/index.ts`.
+
+## Tech Stack
+
+- **Framework**: Next.js 16 (App Router)
+- **UI**: React 19
+- **Styling**: Tailwind CSS 4
+- **Language**: TypeScript 5
+- **Font**: Geist Mono
+
+## Deployment
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/jarero321/portafolio)
+
+## License
+
+MIT
+
+---
+
+<div align="center">
+
+**Built with Next.js and a terminal mindset**
+
+</div>

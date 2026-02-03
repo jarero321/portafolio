@@ -41,6 +41,10 @@ export const translations = {
     // Categories
     frontend: 'Frontend',
     backend: 'Backend',
+    testing: 'Testing & QA',
+    architecture: 'Architecture',
+    cloud: 'Cloud & DevOps',
+    database: 'Databases',
     tools: 'Tools',
     soft: 'Soft Skills',
 
@@ -88,6 +92,10 @@ export const translations = {
     // Categories
     frontend: 'Frontend',
     backend: 'Backend',
+    testing: 'Testing & QA',
+    architecture: 'Arquitectura',
+    cloud: 'Cloud & DevOps',
+    database: 'Bases de Datos',
     tools: 'Herramientas',
     soft: 'Habilidades Blandas',
 
@@ -135,6 +143,10 @@ export const translations = {
     // Categories
     frontend: '01000110 01110010 01101111 01101110 01110100',
     backend: '01000010 01100001 01100011 01101011',
+    testing: '01010100 01100101 01110011 01110100',
+    architecture: '01000001 01110010 01100011 01101000',
+    cloud: '01000011 01101100 01101111 01110101 01100100',
+    database: '01000100 01000010',
     tools: '01010100 01101111 01101111 01101100 01110011',
     soft: '01010011 01101111 01100110 01110100',
 

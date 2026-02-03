@@ -44,11 +44,34 @@ export const about: Command = {
   execute: () => {
     const logo = getLogo();
     const lang = getLanguage();
-    const bio = lang === 'es'
-      ? 'Desarrollador apasionado enfocado en crear soluciones elegantes. Me encanta el código limpio, la buena UX y aprender nuevas tecnologías.'
-      : lang === 'bin'
+
+    const bioEn = `Software Engineer with 5+ years in fintech building scalable systems.
+
+\x1b[33m→ What I do:\x1b[0m
+  Architect and develop high-traffic financial systems
+  Lead technical teams and mentor developers
+  Design event-driven microservices at scale
+
+\x1b[33m→ Impact:\x1b[0m
+  Scaled systems across 8 LATAM countries
+  Processed millions of transactions
+  Built real-time financial platforms`;
+
+    const bioEs = `Ingeniero de Software con 5+ años en fintech construyendo sistemas escalables.
+
+\x1b[33m→ Lo que hago:\x1b[0m
+  Arquitectura y desarrollo de sistemas financieros de alto tráfico
+  Lidero equipos técnicos y mentoreo desarrolladores
+  Diseño microservicios event-driven a escala
+
+\x1b[33m→ Impacto:\x1b[0m
+  Escalé sistemas a 8 países de LATAM
+  Procesé millones de transacciones
+  Construí plataformas financieras en tiempo real`;
+
+    const bio = lang === 'es' ? bioEs : lang === 'bin'
       ? '01000100 01100101 01110110 01100101 01101100 01101111 01110000 01100101 01110010'
-      : portfolio.bio;
+      : bioEn;
 
     const lines = [
       `\x1b[36m${logo}\x1b[0m`,
@@ -93,7 +116,7 @@ export const projects: Command = {
 export const skills: Command = {
   name: 'skills',
   description: 'View my skills',
-  usage: 'skills [--category=frontend|backend|tools|soft]',
+  usage: 'skills [--category=frontend|backend|testing|architecture|cloud|database|tools|soft]',
   execute: (args) => {
     let items = portfolio.skills;
     const categoryFlag = args.find(a => a.startsWith('--category='));
@@ -106,11 +129,15 @@ export const skills: Command = {
     const categoryNames: Record<string, keyof typeof import('@/lib/i18n').translations.en> = {
       frontend: 'frontend',
       backend: 'backend',
+      testing: 'testing',
+      architecture: 'architecture',
+      cloud: 'cloud',
+      database: 'database',
       tools: 'tools',
       soft: 'soft',
     };
 
-    const categories = ['frontend', 'backend', 'tools', 'soft'] as const;
+    const categories = ['frontend', 'backend', 'testing', 'architecture', 'cloud', 'database', 'tools', 'soft'] as const;
     const lines: string[] = [`\x1b[1m${t('skillsTitle')}:\x1b[0m`, ''];
 
     categories.forEach(cat => {
@@ -142,6 +169,11 @@ export const experience: Command = {
       lines.push(`${prefix}─ \x1b[36m${exp.role}\x1b[0m @ \x1b[1m${exp.company}\x1b[0m`);
       lines.push(`${line}   \x1b[90m${exp.period}\x1b[0m`);
       lines.push(`${line}   ${exp.description}`);
+      if (exp.highlights && exp.highlights.length > 0) {
+        exp.highlights.forEach(h => {
+          lines.push(`${line}   \x1b[32m→\x1b[0m ${h}`);
+        });
+      }
       if (exp.tech) {
         lines.push(`${line}   \x1b[90m${t('tech')}: ${exp.tech.join(', ')}\x1b[0m`);
       }
