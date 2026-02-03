@@ -95,27 +95,18 @@ export function useTerminal() {
   }, []);
 
   const typeText = useCallback(async (text: string, type: TerminalLine['type']) => {
-    const lineId = generateId();
-    const words = text.split(' ');
-    let currentText = '';
+    // Split by lines and add each line with minimal delay (like a real terminal)
+    const textLines = text.split('\n');
 
-    // Add empty line first
-    setLines(prev => [...prev, { id: lineId, type, content: '', timestamp: Date.now() }]);
+    for (let i = 0; i < textLines.length; i++) {
+      const lineContent = textLines[i];
+      const lineId = generateId();
 
-    // Type word by word
-    for (let i = 0; i < words.length; i++) {
-      currentText += (i > 0 ? ' ' : '') + words[i];
-      const finalText = currentText;
+      setLines(prev => [...prev, { id: lineId, type, content: lineContent, timestamp: Date.now() }]);
 
-      setLines(prev =>
-        prev.map(line =>
-          line.id === lineId ? { ...line, content: finalText } : line
-        )
-      );
-
-      // Small delay between words (faster for better UX)
-      if (i < words.length - 1) {
-        await new Promise(resolve => setTimeout(resolve, 15));
+      // Very fast delay - just enough to see the streaming effect
+      if (i < textLines.length - 1) {
+        await new Promise(resolve => setTimeout(resolve, 8));
       }
     }
   }, []);

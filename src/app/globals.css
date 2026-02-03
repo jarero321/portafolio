@@ -439,23 +439,17 @@ body {
 .terminal-body {
   padding: 16px;
   min-height: 200px;
-  max-height: 45vh;
+  max-height: 50vh;
   overflow-y: auto;
   font-size: 14px;
   line-height: 1.7;
+  /* Hide scrollbar but keep functionality */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .terminal-body::-webkit-scrollbar {
-  width: 6px;
-}
-
-.terminal-body::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.terminal-body::-webkit-scrollbar-thumb {
-  background: var(--text-muted);
-  border-radius: 3px;
+  display: none;
 }
 
 .terminal-line {
