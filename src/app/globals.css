@@ -206,13 +206,14 @@ body {
   gap: 1rem;
   position: relative;
   z-index: 10;
-  overflow: hidden;
+  overflow: visible;
   min-height: 0;
 }
 
 .hero-text {
   text-align: center;
   margin-bottom: 1rem;
+  flex-shrink: 0;
 }
 
 .hero-title {
@@ -249,6 +250,8 @@ body {
   width: 100%;
   max-width: 900px;
   animation: slideUp 0.6s ease-out;
+  flex-shrink: 1;
+  min-height: 0;
 }
 
 @keyframes slideUp {
@@ -271,6 +274,8 @@ body {
   font-size: 0.85rem;
   color: var(--text-muted);
   animation: fadeIn 0.8s ease-out 0.3s both;
+  flex-shrink: 0;
+  padding-bottom: 0.5rem;
 }
 
 .hints-label {
@@ -316,9 +321,10 @@ body {
 .landing-footer {
   position: relative;
   z-index: 10;
-  padding: 2rem;
+  padding: 1.25rem 2rem;
   text-align: center;
   border-top: 1px solid var(--border-subtle);
+  flex-shrink: 0;
 }
 
 .footer-links {
@@ -443,7 +449,7 @@ body {
 .terminal-body {
   padding: 16px;
   min-height: 200px;
-  max-height: 50vh;
+  max-height: 45vh;
   overflow-y: auto;
   font-size: 14px;
   line-height: 1.7;
@@ -475,6 +481,21 @@ body {
 
 .terminal-line-system {
   color: var(--text-muted);
+}
+
+.terminal-link {
+  color: var(--accent-cyan);
+  text-decoration: underline;
+  text-decoration-color: rgba(10, 132, 255, 0.4);
+  text-underline-offset: 2px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.terminal-link:hover {
+  color: var(--accent-cyan);
+  text-decoration-color: var(--accent-cyan);
+  text-shadow: 0 0 10px var(--glow-cyan);
 }
 
 .thinking-indicator {
