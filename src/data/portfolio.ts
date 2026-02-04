@@ -10,7 +10,7 @@ export const portfolio: PortfolioData = {
     email: 'jareroluis@gmail.com',
     github: 'github.com/jarero321',
     linkedin: 'linkedin.com/in/luis-carlos-jarero-martínez-195855337',
-    website: 'jarero.dev',
+    website: 'portafolio-six-amber.vercel.app',
   },
 
   skills: [
@@ -125,7 +125,7 @@ export const portfolio: PortfolioData = {
       description: 'This interactive terminal-style portfolio with 50+ commands, i18n support, and glassmorphism UI',
       tech: ['Next.js', 'React', 'TypeScript', 'Tailwind'],
       github: 'github.com/jarero321/portafolio',
-      url: 'jarero.dev',
+      url: 'portafolio-six-amber.vercel.app',
       featured: true,
       category: 'web',
     },
