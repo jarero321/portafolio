@@ -1,65 +1,84 @@
 import type { PortfolioData } from '@/types';
 
 export const portfolio: PortfolioData = {
-  name: 'Luis Carlos Jarero',
-  title: 'Senior Software Engineer | Fintech Specialist',
-  bio: 'Software Engineer with 5+ years in fintech building scalable systems across 8 LATAM countries.',
-  location: 'Mexico | Remote',
+  name: 'Carlos',
+  title: 'Software Engineer | Full Stack Developer | Testing & Architecture',
+  bio: 'Software Engineer con +5 años en fintech de alto impacto. Especializado en Testing (TDD/BDD), Clean Architecture y escalamiento de productos. Escalé sistemas de México a 8 países LATAM. Growth mindset y ownership de productos.',
+  location: 'León, Guanajuato, México | Remote',
 
   contact: {
-    email: 'jarero321@gmail.com',
+    email: 'jareroluis@gmail.com',
     github: 'github.com/jarero321',
-    linkedin: 'linkedin.com/in/jarero',
+    linkedin: 'linkedin.com/in/luis-carlos-jarero-martínez-195855337',
     website: 'jarero.dev',
   },
 
   skills: [
-    // Frontend
+    // Languages & Frontend
     { name: 'TypeScript', level: 95, category: 'frontend' },
+    { name: 'JavaScript', level: 95, category: 'frontend' },
     { name: 'React', level: 95, category: 'frontend' },
     { name: 'Next.js', level: 90, category: 'frontend' },
-    { name: 'JavaScript', level: 95, category: 'frontend' },
     { name: 'Tailwind CSS', level: 85, category: 'frontend' },
 
     // Backend
     { name: 'Node.js', level: 95, category: 'backend' },
     { name: 'NestJS', level: 90, category: 'backend' },
-    { name: 'C# / .NET', level: 80, category: 'backend' },
+    { name: 'Express.js', level: 90, category: 'backend' },
+    { name: 'C# / .NET', level: 85, category: 'backend' },
+    { name: '.NET MVC', level: 80, category: 'backend' },
     { name: 'Python', level: 75, category: 'backend' },
+    { name: 'Ruby', level: 70, category: 'backend' },
     { name: 'Go', level: 70, category: 'backend' },
 
-    // Testing
-    { name: 'Jest', level: 90, category: 'testing' },
+    // Testing (Especialidad)
+    { name: 'TDD', level: 95, category: 'testing' },
+    { name: 'BDD', level: 95, category: 'testing' },
     { name: 'Playwright', level: 90, category: 'testing' },
-    { name: 'Cypress', level: 85, category: 'testing' },
-    { name: 'TDD/BDD', level: 90, category: 'testing' },
+    { name: 'Cypress', level: 90, category: 'testing' },
+    { name: 'Jest', level: 90, category: 'testing' },
+    { name: 'Cucumber/Gherkin', level: 85, category: 'testing' },
+    { name: 'RSpec', level: 75, category: 'testing' },
 
-    // Architecture
-    { name: 'Clean Architecture', level: 90, category: 'architecture' },
+    // Architecture (Especialidad)
+    { name: 'Clean Architecture', level: 95, category: 'architecture' },
     { name: 'SOLID Principles', level: 95, category: 'architecture' },
     { name: 'Microservices', level: 90, category: 'architecture' },
-    { name: 'Event-Driven', level: 85, category: 'architecture' },
-    { name: 'DDD', level: 80, category: 'architecture' },
+    { name: 'Event-Driven', level: 90, category: 'architecture' },
+    { name: 'REST APIs', level: 95, category: 'architecture' },
+    { name: 'GraphQL', level: 80, category: 'architecture' },
+    { name: 'Circuit Breaker', level: 85, category: 'architecture' },
+    { name: 'Feature Flags', level: 85, category: 'architecture' },
 
     // Cloud & DevOps
-    { name: 'AWS', level: 85, category: 'cloud' },
+    { name: 'AWS', level: 90, category: 'cloud' },
+    { name: 'AWS Lambda', level: 90, category: 'cloud' },
+    { name: 'API Gateway', level: 85, category: 'cloud' },
     { name: 'Docker', level: 90, category: 'cloud' },
-    { name: 'Kubernetes', level: 75, category: 'cloud' },
-    { name: 'CI/CD', level: 85, category: 'cloud' },
+    { name: 'Kubernetes', level: 80, category: 'cloud' },
+    { name: 'GitHub Actions', level: 90, category: 'cloud' },
+    { name: 'Azure DevOps', level: 85, category: 'cloud' },
+    { name: 'CI/CD', level: 90, category: 'cloud' },
 
     // Databases
     { name: 'PostgreSQL', level: 90, category: 'database' },
+    { name: 'MySQL', level: 85, category: 'database' },
     { name: 'MongoDB', level: 85, category: 'database' },
-    { name: 'Redis', level: 80, category: 'database' },
+    { name: 'SQL Server', level: 80, category: 'database' },
+    { name: 'Redis', level: 85, category: 'database' },
 
-    // Tools
+    // Tools & Version Control
     { name: 'Git', level: 95, category: 'tools' },
+    { name: 'GitHub', level: 95, category: 'tools' },
+    { name: 'GitLab', level: 85, category: 'tools' },
     { name: 'Linux', level: 85, category: 'tools' },
 
-    // Soft Skills
-    { name: 'Tech Leadership', level: 90, category: 'soft' },
-    { name: 'Problem Solving', level: 95, category: 'soft' },
-    { name: 'Mentoring', level: 85, category: 'soft' },
+    // Soft Skills & Leadership
+    { name: 'Tech Leadership', level: 95, category: 'soft' },
+    { name: 'Team Mentoring', level: 90, category: 'soft' },
+    { name: 'Product Ownership', level: 90, category: 'soft' },
+    { name: 'Code Reviews', level: 95, category: 'soft' },
+    { name: 'Agile/Scrum', level: 90, category: 'soft' },
   ],
 
   projects: [
@@ -103,7 +122,7 @@ export const portfolio: PortfolioData = {
     {
       id: 'portfolio-web',
       name: 'Terminal Portfolio',
-      description: 'This interactive terminal-style portfolio with 20+ commands, i18n support, and glassmorphism UI',
+      description: 'This interactive terminal-style portfolio with 50+ commands, i18n support, and glassmorphism UI',
       tech: ['Next.js', 'React', 'TypeScript', 'Tailwind'],
       github: 'github.com/jarero321/portafolio',
       url: 'jarero.dev',
@@ -123,89 +142,101 @@ export const portfolio: PortfolioData = {
   experience: [
     {
       company: 'PAYCASH',
-      role: 'Senior Software Engineer',
-      period: '2023 - Present',
-      description: 'Leading fintech platform development for LATAM expansion',
+      role: 'Senior Fullstack Developer',
+      period: 'Ene 2025 - Present',
+      description: 'Plataforma de pagos LATAM | Remoto',
       highlights: [
-        'Scaled payment systems to 8 LATAM countries',
-        'Architected event-driven microservices processing millions of transactions',
-        'Led team of 5 engineers, mentoring junior developers',
+        'Ownership completo del módulo de facturación escalando de México a 8 países LATAM',
+        'Resolución de problema crítico de connection pooling que bloqueaba escalamiento',
+        'Implementación de circuit breakers con métricas y documentación de trade-offs',
+        'Desarrollo de packages internos reutilizables y arquitectura de referencia',
+        'Participación activa en definición de producto y mejora continua',
       ],
-      tech: ['TypeScript', 'NestJS', 'AWS', 'PostgreSQL', 'RabbitMQ'],
+      tech: ['Node.js', 'TypeScript', 'AWS Lambda', 'API Gateway', 'C#/.NET MVC', 'PostgreSQL', 'GitHub Actions'],
     },
     {
-      company: 'KUSPIT',
-      role: 'Software Engineer',
-      period: '2022 - 2023',
-      description: 'Investment platform development for retail traders',
+      company: 'KUSPIT Casa de Bolsa',
+      role: 'Frontend Lead',
+      period: 'Feb 2024 - Dic 2024',
+      description: 'Plataforma bursátil regulada | Remoto',
       highlights: [
-        'Built real-time trading interfaces with React',
-        'Implemented secure authentication with multi-factor auth',
-        'Reduced API response times by 40%',
+        'Liderazgo de equipo frontend para migración de plataforma de pagos y wallet digital',
+        'Definición de arquitectura con Clean Architecture y principios SOLID',
+        'Implementación de estrategia de testing con Playwright para E2E cross-browser',
+        'Diseño de pipelines CI/CD en Azure DevOps con gates de calidad automatizados',
       ],
-      tech: ['React', 'TypeScript', 'Node.js', 'PostgreSQL'],
+      tech: ['Next.js', 'TypeScript', 'React', 'Zustand', 'Playwright', 'Azure DevOps'],
     },
     {
-      company: 'FORTE',
-      role: 'Full Stack Developer',
-      period: '2021 - 2022',
-      description: 'E-commerce and inventory management solutions',
+      company: 'FORTE Innovation Consulting',
+      role: 'Frontend Lead',
+      period: 'Ene 2023 - Feb 2024',
+      description: 'Consultoría de innovación | Remoto',
       highlights: [
-        'Developed inventory management system handling 50k+ SKUs',
-        'Built admin dashboard with real-time analytics',
+        'Implementación de BDD con Cucumber y Gherkin para specs compartidas entre QA, desarrollo y negocio',
+        'Definición de estándares de código y mejores prácticas para equipo de 5 desarrolladores',
+        'Colaboración directa con Product Owners en análisis y priorización',
+        'Mentoría técnica y code reviews enfocados en mejora continua',
       ],
-      tech: ['React', 'Node.js', 'MongoDB', 'Docker'],
+      tech: ['React', 'TypeScript', 'Cucumber', 'BDD', 'Git', 'Scrum'],
     },
     {
       company: 'DD360',
       role: 'Frontend Developer',
-      period: '2020 - 2021',
-      description: 'Real estate investment platform',
+      period: 'Ene 2022 - Ene 2023',
+      description: 'Fintech hipotecaria | Remoto',
       highlights: [
-        'Built property investment flows with complex form wizards',
-        'Implemented responsive design system',
+        'Desarrollo de features core en plataforma con arquitectura de microservicios',
+        'Aplicación de TDD en componentes críticos e integration testing para KYC',
+        'Implementación de flujos UX complejos: stepper multi-paso y formularios dinámicos',
+        'Trabajo en equipo de 15+ personas con ex-CTO de Rappi LATAM',
       ],
-      tech: ['React', 'TypeScript', 'Styled Components'],
+      tech: ['React', 'TypeScript', 'Cypress', 'Jest', 'Microservices'],
     },
     {
-      company: 'ThinkCare',
-      role: 'Junior Developer',
-      period: '2019 - 2020',
-      description: 'Healthcare management platform',
+      company: 'ThinkCare Technologies',
+      role: 'Tech Lead',
+      period: 'Ene 2021 - Dic 2022',
+      description: 'Plataforma de tecnología | Remoto',
       highlights: [
-        'Developed patient management modules',
-        'Contributed to HIPAA-compliant data handling',
+        'Definición de arquitectura frontend con Clean Architecture y SOLID desde cero',
+        'Establecimiento de cultura de testing: unit, integration y E2E como práctica estándar',
+        'Migración de SPAs a Next.js mejorando SEO y tiempos de carga',
+        'Liderazgo de equipos con metodología Scrum y Agile',
       ],
-      tech: ['JavaScript', 'React', 'Node.js'],
+      tech: ['React', 'Next.js', 'TypeScript', 'Testing', 'Git', 'Scrum'],
     },
   ],
 
   education: [
     {
-      institution: 'Universidad Autónoma de México',
-      degree: 'B.S. Computer Science',
-      period: '2015 - 2019',
-      description: 'Focus on software engineering and distributed systems.',
+      institution: 'CECyTE Plantel Purísima',
+      degree: 'Bachillerato Técnico en Computación',
+      period: '2018',
+      description: 'Formación técnica en programación y sistemas computacionales.',
     },
     {
-      institution: 'Professional Certifications',
-      degree: 'AWS & Cloud Technologies',
-      period: '2020 - Present',
-      description: 'AWS Cloud Practitioner, Kubernetes Fundamentals.',
+      institution: 'Platzi & Continuous Learning',
+      degree: 'Formación Continua en Software',
+      period: '2019 - Present',
+      description: 'Arquitectura de Software, Kafka, Kubernetes, AWS, Clean Code, Testing.',
     },
   ],
 };
 
 export const asciiArt = {
   logo: `
- ██████╗ █████╗ ██████╗ ██╗      ██████╗ ███████╗
-██╔════╝██╔══██╗██╔══██╗██║     ██╔═══██╗██╔════╝
-██║     ███████║██████╔╝██║     ██║   ██║███████╗
-██║     ██╔══██║██╔══██╗██║     ██║   ██║╚════██║
-╚██████╗██║  ██║██║  ██║███████╗╚██████╔╝███████║
- ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝ ╚═════╝ ╚══════╝
+   ___   __   ____  __    __   ____
+  / __) / _\\ (  _ \\(  )  /  \\ / ___)
+ ( (__ /    \\ )   // (_/\\(  O )\\___ \\
+  \\___)\\_ / (__\\_)\\____/ \\__/ (____/
 `,
-  logoMobile: `[ CARLOS ]`,
+  logoMobile: `
+   ___   __   ____  __    __   ____
+  / __) / _\\ (  _ \\(  )  /  \\ / ___)
+ ( (__ /    \\ )   // (_/\\(  O )\\___ \\
+  \\___)\\_ / (__\\_)\\____/ \\__/ (____/
+`,
   coffee: `
       ( (
        ) )

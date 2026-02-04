@@ -4,11 +4,12 @@ import { useState, useEffect, use } from 'react';
 import { useRouter } from 'next/navigation';
 import { Terminal } from '@/components/Terminal';
 import { t, type Language } from '@/lib/i18n';
+import { portfolio } from '@/data/portfolio';
 
-const languages: { code: Language; flag: string; label: string }[] = [
-  { code: 'en', flag: '🇺🇸', label: 'EN' },
-  { code: 'es', flag: '🇪🇸', label: 'ES' },
-  { code: 'bin', flag: '🤖', label: '01' },
+const languages: { code: Language; flag: string }[] = [
+  { code: 'en', flag: 'EN' },
+  { code: 'es', flag: 'ES' },
+  { code: 'bin', flag: '01' },
 ];
 
 export default function Home({ params }: { params: Promise<{ locale: string }> }) {
@@ -50,17 +51,16 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
       <div className="landing-bg" />
 
       <header className="landing-header">
-        {/* Language Switcher */}
+        {/* Language Switcher - Segmented Control */}
         <div className="lang-switcher">
           {languages.map((l) => (
             <button
               key={l.code}
               onClick={() => handleLanguageChange(l.code)}
               className={`lang-btn ${lang === l.code ? 'lang-btn-active' : ''}`}
-              title={l.label}
               disabled={isTransitioning}
             >
-              <span className="lang-flag">{l.flag}</span>
+              <span className="lang-code">{l.flag}</span>
             </button>
           ))}
         </div>
@@ -98,15 +98,15 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
 
       <footer className="landing-footer">
         <div className="footer-links">
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="footer-link">
+          <a href={`https://${portfolio.contact.github}`} target="_blank" rel="noopener noreferrer" className="footer-link">
             GitHub
           </a>
           <span className="footer-separator">·</span>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="footer-link">
+          <a href={`https://${portfolio.contact.linkedin}`} target="_blank" rel="noopener noreferrer" className="footer-link">
             LinkedIn
           </a>
           <span className="footer-separator">·</span>
-          <a href="mailto:hello@example.com" className="footer-link">
+          <a href={`mailto:${portfolio.contact.email}`} className="footer-link">
             Email
           </a>
         </div>

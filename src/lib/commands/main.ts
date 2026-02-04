@@ -8,6 +8,11 @@ function getLogo(): string {
   return isMobile() ? asciiArt.logoMobile : asciiArt.logo;
 }
 
+function getColoredLogo(): string {
+  const logo = getLogo();
+  return logo.split('\n').map(line => `\x1b[36m${line}\x1b[0m`).join('\n');
+}
+
 export const help: Command = {
   name: 'help',
   description: 'Show available commands',
@@ -42,39 +47,48 @@ export const about: Command = {
   name: 'about',
   description: 'About me',
   execute: () => {
-    const logo = getLogo();
     const lang = getLanguage();
 
-    const bioEn = `Software Engineer with 5+ years in fintech building scalable systems.
+    const bioEn = `Software Engineer with 5+ years in high-impact fintech systems.
 
-\x1b[33m→ What I do:\x1b[0m
-  Architect and develop high-traffic financial systems
-  Lead technical teams and mentor developers
-  Design event-driven microservices at scale
+\x1b[33m→ Specialization:\x1b[0m
+  Testing Expert: TDD, BDD, Cucumber, Playwright, Cypress
+  Software Architecture: Clean Architecture, SOLID, Microservices
+  Full Stack: TypeScript, Node.js, React, Next.js, .NET
+
+\x1b[33m→ Leadership:\x1b[0m
+  Frontend Lead & Tech Lead roles across multiple companies
+  Team mentoring and code review culture
+  Product ownership and continuous improvement
 
 \x1b[33m→ Impact:\x1b[0m
-  Scaled systems across 8 LATAM countries
-  Processed millions of transactions
-  Built real-time financial platforms`;
+  Scaled billing module from Mexico to 8 LATAM countries
+  Solved critical connection pooling blocking system scale
+  Banking integrations: NEQUI, PIX, Bancolombia, Transfiya`;
 
-    const bioEs = `Ingeniero de Software con 5+ años en fintech construyendo sistemas escalables.
+    const bioEs = `Ingeniero de Software con 5+ años en fintech de alto impacto.
 
-\x1b[33m→ Lo que hago:\x1b[0m
-  Arquitectura y desarrollo de sistemas financieros de alto tráfico
-  Lidero equipos técnicos y mentoreo desarrolladores
-  Diseño microservicios event-driven a escala
+\x1b[33m→ Especialización:\x1b[0m
+  Testing Expert: TDD, BDD, Cucumber, Playwright, Cypress
+  Arquitectura de Software: Clean Architecture, SOLID, Microservicios
+  Full Stack: TypeScript, Node.js, React, Next.js, .NET
+
+\x1b[33m→ Liderazgo:\x1b[0m
+  Roles de Frontend Lead y Tech Lead en múltiples empresas
+  Mentoría de equipos y cultura de code review
+  Ownership de productos y mejora continua
 
 \x1b[33m→ Impacto:\x1b[0m
-  Escalé sistemas a 8 países de LATAM
-  Procesé millones de transacciones
-  Construí plataformas financieras en tiempo real`;
+  Escalé módulo de facturación de México a 8 países LATAM
+  Resolví connection pooling crítico que bloqueaba escalamiento
+  Integraciones bancarias: NEQUI, PIX, Bancolombia, Transfiya`;
 
     const bio = lang === 'es' ? bioEs : lang === 'bin'
       ? '01000100 01100101 01110110 01100101 01101100 01101111 01110000 01100101 01110010'
       : bioEn;
 
     const lines = [
-      `\x1b[36m${logo}\x1b[0m`,
+      getColoredLogo(),
       '',
       `\x1b[1m${portfolio.name}\x1b[0m`,
       `\x1b[90m${portfolio.title}\x1b[0m`,
@@ -100,13 +114,15 @@ export const projects: Command = {
 
     const lines = [`\x1b[1m${t('projectsTitle')}:\x1b[0m`, ''];
 
-    items.forEach(p => {
+    items.forEach((p, i) => {
+      const isLast = i === items.length - 1;
+
       lines.push(`\x1b[36m${p.name}\x1b[0m ${p.featured ? '⭐' : ''}`);
       lines.push(`  ${p.description}`);
       lines.push(`  \x1b[90m${t('tech')}: ${p.tech.join(', ')}\x1b[0m`);
       if (p.github) lines.push(`  \x1b[90m🔗 ${p.github}\x1b[0m`);
       if (p.url) lines.push(`  \x1b[90m🌐 ${p.url}\x1b[0m`);
-      lines.push('');
+      if (!isLast) lines.push('');
     });
 
     return { output: lines.join('\n') };
@@ -163,21 +179,19 @@ export const experience: Command = {
 
     portfolio.experience.forEach((exp, i) => {
       const isLast = i === portfolio.experience.length - 1;
-      const prefix = isLast ? '└' : '├';
-      const line = isLast ? ' ' : '│';
 
-      lines.push(`${prefix}─ \x1b[36m${exp.role}\x1b[0m @ \x1b[1m${exp.company}\x1b[0m`);
-      lines.push(`${line}   \x1b[90m${exp.period}\x1b[0m`);
-      lines.push(`${line}   ${exp.description}`);
+      lines.push(`\x1b[36m${exp.role}\x1b[0m @ \x1b[1m${exp.company}\x1b[0m`);
+      lines.push(`  \x1b[90m${exp.period}\x1b[0m`);
+      lines.push(`  ${exp.description}`);
       if (exp.highlights && exp.highlights.length > 0) {
         exp.highlights.forEach(h => {
-          lines.push(`${line}   \x1b[32m→\x1b[0m ${h}`);
+          lines.push(`  \x1b[32m→\x1b[0m ${h}`);
         });
       }
       if (exp.tech) {
-        lines.push(`${line}   \x1b[90m${t('tech')}: ${exp.tech.join(', ')}\x1b[0m`);
+        lines.push(`  \x1b[90m${t('tech')}: ${exp.tech.join(', ')}\x1b[0m`);
       }
-      lines.push(isLast ? '' : '│');
+      if (!isLast) lines.push('');
     });
 
     return { output: lines.join('\n') };
@@ -192,16 +206,14 @@ export const education: Command = {
 
     portfolio.education.forEach((edu, i) => {
       const isLast = i === portfolio.education.length - 1;
-      const prefix = isLast ? '└' : '├';
-      const line = isLast ? ' ' : '│';
 
-      lines.push(`${prefix}─ \x1b[36m${edu.degree}\x1b[0m`);
-      lines.push(`${line}   \x1b[1m${edu.institution}\x1b[0m`);
-      lines.push(`${line}   \x1b[90m${edu.period}\x1b[0m`);
+      lines.push(`\x1b[36m${edu.degree}\x1b[0m`);
+      lines.push(`  \x1b[1m${edu.institution}\x1b[0m`);
+      lines.push(`  \x1b[90m${edu.period}\x1b[0m`);
       if (edu.description) {
-        lines.push(`${line}   ${edu.description}`);
+        lines.push(`  ${edu.description}`);
       }
-      lines.push(isLast ? '' : '│');
+      if (!isLast) lines.push('');
     });
 
     return { output: lines.join('\n') };
@@ -237,9 +249,8 @@ export const welcome: Command = {
   name: 'welcome',
   description: 'Show welcome message',
   execute: () => {
-    const logo = getLogo();
     const lines = [
-      `\x1b[36m${logo}\x1b[0m`,
+      getColoredLogo(),
       '',
       `\x1b[1m${t('welcomeTitle')} ${portfolio.name}'s ${t('welcomePortfolio')}\x1b[0m`,
       '',
