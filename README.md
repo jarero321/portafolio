@@ -58,6 +58,7 @@ I use AI extensively to code—I trust it and leverage it to ship fast and itera
 | Project | What it does | Stack |
 |---------|--------------|-------|
 | [**mcp-repo-monitor**](./mcp-repo-monitor) | GitHub monitoring MCP server. 7 tools: PRs, CI status, rollbacks, drift detection, auto-sync. | Go |
+| [**mcp-obsidian-planner**](./mcp-obsidian-planner) | Obsidian vault planning MCP server. 17 tools: daily notes, inbox, tasks, projects, weekly reviews. | NestJS |
 | [**claude-skills**](./claude-skills) | Package manager for Claude Code skills & MCP servers. npm for AI agents. | TypeScript |
 
 ### CLI & Developer Tools
