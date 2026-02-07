@@ -1,15 +1,14 @@
 <div align="center">
 
 ```
-                  _    __       _ _
- _ __   ___  _ __| |_ / _| ___ | (_) ___
-| '_ \ / _ \| '__| __| |_ / _ \| | |/ _ \
-| |_) | (_) | |  | |_|  _| (_) | | | (_) |
-| .__/ \___/|_|   \__|_|  \___/|_|_|\___/
-|_|
+ _                      _             _
+| |_ ___ _ __ _ __ ___ (_)_ __   __ _| |
+| __/ _ \ '__| '_ ` _ \| | '_ \ / _` | |
+| ||  __/ |  | | | | | | | | | | (_| | |
+ \__\___|_|  |_| |_| |_|_|_| |_|\__,_|_|
 ```
 
-### I wanted my portfolio to feel like a terminal. So I built one.
+### I wanted my portfolio to feel like a real terminal. So I built one.
 
 ![Next.js](https://img.shields.io/badge/Next.js_16-000000?logo=next.js&logoColor=white)
 ![React](https://img.shields.io/badge/React_19-61DAFB?logo=react&logoColor=black)
@@ -18,9 +17,9 @@
 
 [![License](https://img.shields.io/github/license/jarero321/portafolio?style=flat-square)](LICENSE)
 
-**Interactive terminal-style portfolio with 58+ commands, i18n support, and glassmorphism UI**
+**CLI-style portfolio with 58 commands, ANSI colors, tab completion, i18n, and glassmorphism UI**
 
-[Live Demo](https://jarero.dev) · [Features](#features) · [Commands](#commands) · [Customization](#customization)
+[Live Demo](https://jarero.dev) · [Commands](#commands) · [How It Works](#how-it-works) · [Customization](#customization)
 
 </div>
 
@@ -28,32 +27,62 @@
 
 ![Terminal Portfolio Hero](public/screenshots/terminal-hero.png)
 
-## Features
+## Why I Built This
 
-| Feature | Description |
-|---------|-------------|
-| **Terminal UI** | Authentic terminal experience with typing effects and ANSI color support |
-| **58+ Commands** | Portfolio, Linux-style, dev jokes, and easter eggs |
-| **i18n Support** | English, Spanish, and Binary (`01001...`) language modes |
-| **Glassmorphism** | macOS-inspired design with blur effects and floating orbs |
-| **Responsive** | Optimized for desktop and mobile |
-| **Keyboard Shortcuts** | Tab completion, history navigation, Ctrl+L/C |
+Traditional portfolios are boring. I wanted something that:
+
+- Feels like an actual terminal session
+- Has real commands with flags and arguments
+- Parses ANSI escape codes for colors
+- Supports tab completion and command history
+- Works in 3 languages (including binary)
+
+58 commands. One `index.tsx`.
+
+---
+
+## Demo
+
+```
+carlos@portfolio — bash
+
+❯ help
+
+  Portfolio        about, skills, projects, experience, education, contact
+  System           ls, pwd, cat, echo, whoami, date, uptime, neofetch, top
+  Fun              coffee, matrix, cowsay, fortune, hack
+  Dev Humor        git, npm, docker, deploy, css, js, typescript
+
+❯ skills --category=backend
+
+  Node.js          ████████████████████░░  90  ★
+  NestJS           █████████████████░░░░░  85  ★
+  Go               ████████████████░░░░░░  80  ●
+  C#/.NET          ██████████████░░░░░░░░  70  ○
+
+❯ lang bin
+
+  01001100 01100001 01101110 01100111 01110101 01100001 01100111 01100101
+  01110011 01100101 01110100 00100000 01110100 01101111 00100000 01100010
+```
+
+---
 
 ## Commands
 
-### Portfolio Commands
-
-![Terminal Help](public/screenshots/terminal-help.png)
+### Portfolio (9)
 
 | Command | Description |
 |---------|-------------|
-| `help [cmd]` | Show available commands or help for specific command |
-| `about` | Personal info, specializations, leadership, and impact |
-| `skills [--category=X]` | Technical skills across 8 categories (42 skills) |
+| `help [cmd]` | Show all commands or help for a specific command |
+| `about` | Bio, specializations, leadership, and impact |
+| `skills [--category=X]` | 82 skills across 8 categories with level bars |
 | `projects [--featured]` | Portfolio projects with tech stack and links |
 | `experience` | Work history (5 positions) |
 | `education` | Academic background |
 | `contact` | Email, GitHub, LinkedIn, website |
+| `welcome` | Show welcome message |
+| `clear` | Clear terminal |
 
 <details>
 <summary><strong>about</strong> — Bio, specializations, and impact</summary>
@@ -63,7 +92,7 @@
 </details>
 
 <details>
-<summary><strong>skills</strong> — 42 skills across 8 categories</summary>
+<summary><strong>skills</strong> — 82 skills across 8 categories</summary>
 
 ![Terminal Skills](public/screenshots/terminal-skills.png)
 
@@ -78,73 +107,118 @@ Categories: `frontend`, `backend`, `testing`, `architecture`, `cloud`, `database
 
 </details>
 
-### System Commands
+### Linux (23)
 
 | Command | Description |
 |---------|-------------|
-| `clear` | Clear terminal |
-| `lang [en\|es\|bin]` | Change language |
-| `ls [-a]`, `pwd`, `whoami` | Linux-style commands |
-| `cat`, `echo`, `date`, `uptime` | Standard utilities |
-| `neofetch`, `top`, `ping`, `curl` | System info |
-| `vim`, `nano`, `grep`, `sudo` | Editor & tools |
+| `ls [-a]`, `pwd`, `cd` | File system navigation |
+| `cat`, `echo`, `whoami` | Standard utilities |
+| `date`, `uptime`, `history` | System info |
+| `neofetch`, `top`, `htop` | System monitors |
+| `ping`, `curl` | Network tools |
+| `vim`, `nano`, `grep` | Editors & search |
+| `sudo`, `rm`, `mkdir`, `touch`, `man`, `exit` | Admin & file ops |
 
-### Easter Eggs & Dev Humor
+### Fun (9)
 
 | Command | Description |
 |---------|-------------|
-| `coffee` | Virtual coffee break |
+| `coffee` | Virtual coffee break with ASCII art |
 | `matrix` | Enter the Matrix |
-| `cowsay [msg]` | ASCII cow |
+| `cowsay [msg]` | ASCII cow says your message |
 | `fortune` | Random dev wisdom |
-| `git`, `npm`, `docker` | Dev tool jokes |
-| `deploy`, `css`, `js` | Programming humor |
 | `hack` | Fake hacking sequence |
+| `sl` | Steam locomotive (classic typo) |
+| `hello`, `hi`, `lol` | Greetings |
+
+### Dev Humor (15)
+
+| Command | Description |
+|---------|-------------|
+| `git`, `npm`, `docker` | Tool jokes |
+| `deploy`, `production` | Deployment humor |
+| `css`, `js`, `typescript` | Language jokes |
+| `regex`, `debug`, `error` | Dev pain |
+| `stackoverflow`, `chatgpt`, `leetcode`, `meeting` | Culture jokes |
+
+### Language (2)
+
+| Command | Description |
+|---------|-------------|
+| `lang [en\|es\|bin]` | Switch language (English, Spanish, Binary) |
+| `language` | Alias for `lang` |
+
+---
+
+## How It Works
+
+### Terminal Architecture
+
+```
+src/
+├── components/Terminal/     # UI layer
+│   ├── Terminal.tsx          # Container with auto-scroll
+│   ├── TerminalHeader.tsx   # macOS-style title bar (3 dots)
+│   ├── TerminalInput.tsx    # Input with ❯ prompt, auto-focus
+│   └── TerminalLine.tsx     # ANSI parser + URL auto-linker
+├── lib/
+│   ├── commands/            # 58 commands in 5 modules
+│   │   ├── registry.ts      # Command registry (Map-based)
+│   │   ├── parser.ts        # Tokenizer + flag parser
+│   │   ├── main.ts          # Portfolio commands (9)
+│   │   ├── linux.ts         # Linux commands (23)
+│   │   ├── fun.ts           # Easter eggs (9)
+│   │   ├── devJokes.ts      # Dev humor (15)
+│   │   └── language.ts      # i18n switcher (2)
+│   ├── hooks/useTerminal.ts # State: history, input, execution
+│   └── i18n.ts              # 3 languages, 50+ keys, pub/sub
+├── data/portfolio.ts        # All portfolio data lives here
+└── app/[locale]/            # Next.js App Router with i18n
+```
+
+### Key Features
+
+| Feature | How |
+|---------|-----|
+| **ANSI Colors** | Regex parser for 16 colors + bold, dim, italic, underline |
+| **Tab Completion** | Common prefix matching across all registered commands |
+| **Command History** | Up/Down arrows, 50 command buffer |
+| **URL Detection** | Auto-links GitHub, LinkedIn, npm URLs in output |
+| **Typing Effect** | 8ms per line for outputs >100 chars |
+| **Thinking Delay** | 300-600ms fake processing for realism |
+| **Glassmorphism** | `backdrop-filter: blur(40px)` + animated gradient border |
+| **3 Languages** | English, Spanish, Binary (01001...) with live switching |
+
+### Keyboard Shortcuts
+
+| Key | Action |
+|-----|--------|
+| `Tab` | Auto-complete command |
+| `↑` / `↓` | Navigate command history |
+| `Ctrl+L` | Clear terminal |
+| `Ctrl+C` | Cancel current input |
+| `Enter` | Execute command |
+
+---
 
 ## Quick Start
 
 ```bash
-# Clone
 git clone https://github.com/jarero321/portafolio.git
 cd portafolio/portfolio-web
-
-# Install
 npm install
-
-# Run
 npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000)
 
-## Project Structure
-
-```
-src/
-├── app/[locale]/        # Next.js App Router + i18n (en/es/bin)
-├── components/Terminal/  # Terminal UI components
-│   ├── Terminal.tsx      # Main wrapper with auto-scroll
-│   ├── TerminalHeader.tsx # macOS-style title bar
-│   ├── TerminalInput.tsx  # Input with prompt and auto-focus
-│   └── TerminalLine.tsx   # ANSI color parser and URL detection
-├── lib/
-│   ├── commands/         # Command implementations
-│   │   ├── main.ts       # Portfolio commands (9)
-│   │   ├── linux.ts      # Linux-style commands (22)
-│   │   ├── fun.ts        # Easter eggs (9)
-│   │   ├── devJokes.ts   # Dev humor (15)
-│   │   └── language.ts   # Language switcher (2)
-│   ├── hooks/            # useTerminal hook
-│   └── i18n.ts           # Translations (30+ keys)
-├── data/portfolio.ts     # Your data here
-└── types/                # TypeScript types
-```
+---
 
 ## Customization
 
 ### Edit Your Data
 
-Update `src/data/portfolio.ts`:
+All content lives in `src/data/portfolio.ts`:
 
 ```typescript
 export const portfolio = {
@@ -182,28 +256,38 @@ registry.register({
 
 Import in `src/lib/commands/index.ts`.
 
-## Screenshots
-
-Generate screenshots with Playwright:
-
-```bash
-npm run screenshots
-```
-
-Output: `public/screenshots/*.png`
+---
 
 ## Tech Stack
 
-- **Framework**: Next.js 16 (App Router)
-- **UI**: React 19
-- **Styling**: Tailwind CSS 4 + custom glassmorphism CSS
-- **Language**: TypeScript 5 (strict mode)
-- **Font**: Geist Mono
-- **Testing**: Playwright
+| Tool | Version |
+|------|---------|
+| Next.js | 16 (App Router) |
+| React | 19 |
+| TypeScript | 5 (strict) |
+| Tailwind CSS | 4 + custom glassmorphism |
+| Font | Geist Mono |
+| Screenshots | Playwright |
+
+---
+
+## Scripts
+
+| Script | What it does |
+|--------|--------------|
+| `npm run dev` | Start dev server |
+| `npm run build` | Production build |
+| `npm run start` | Production server |
+| `npm run lint` | ESLint |
+| `npm run screenshots` | Generate screenshots with Playwright |
+
+---
 
 ## Deployment
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/jarero321/portafolio)
+
+---
 
 ## License
 
