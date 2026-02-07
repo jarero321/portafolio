@@ -8,7 +8,7 @@
 
 **CLI-style portfolio with 58 commands, ANSI colors, tab completion, i18n, and glassmorphism UI.**
 
-<a href="https://jarero.dev">
+<a href="https://portafolio-six-amber.vercel.app/es">
   <img src="https://img.shields.io/badge/LIVE-FF5722?style=for-the-badge&logo=vercel&logoColor=white" alt="live" />
 </a>
 <a href="https://github.com/jarero321/portafolio">
