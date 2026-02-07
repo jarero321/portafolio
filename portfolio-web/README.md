@@ -1,14 +1,24 @@
 <div align="center">
 
-# Terminal Portfolio
+```
+                  _    __       _ _
+ _ __   ___  _ __| |_ / _| ___ | (_) ___
+| '_ \ / _ \| '__| __| |_ / _ \| | |/ _ \
+| |_) | (_) | |  | |_|  _| (_) | | | (_) |
+| .__/ \___/|_|   \__|_|  \___/|_|_|\___/
+|_|
+```
+
+### I wanted my portfolio to feel like a terminal. So I built one.
 
 ![Next.js](https://img.shields.io/badge/Next.js_16-000000?logo=next.js&logoColor=white)
 ![React](https://img.shields.io/badge/React_19-61DAFB?logo=react&logoColor=black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
 ![Tailwind](https://img.shields.io/badge/Tailwind_CSS_4-06B6D4?logo=tailwindcss&logoColor=white)
-![License](https://img.shields.io/github/license/jarero321/portafolio)
 
-**Interactive terminal-style portfolio with 58+ commands, i18n support, and glassmorphism UI.**
+[![License](https://img.shields.io/github/license/jarero321/portafolio?style=flat-square)](LICENSE)
+
+**Interactive terminal-style portfolio with 58+ commands, i18n support, and glassmorphism UI**
 
 [Live Demo](https://jarero.dev) · [Features](#features) · [Commands](#commands) · [Customization](#customization)
 
@@ -203,6 +213,6 @@ MIT
 
 <div align="center">
 
-**Built with Next.js and a terminal mindset**
+**[Report Bug](https://github.com/jarero321/portafolio/issues)** · **[Request Feature](https://github.com/jarero321/portafolio/issues)**
 
 </div>
