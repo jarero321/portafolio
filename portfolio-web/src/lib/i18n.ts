@@ -41,6 +41,10 @@ export const translations = {
     // Categories
     frontend: 'Frontend',
     backend: 'Backend',
+    testing: 'Testing & QA',
+    architecture: 'Architecture',
+    cloud: 'Cloud & DevOps',
+    database: 'Databases',
     tools: 'Tools',
     soft: 'Soft Skills',
 
@@ -50,7 +54,6 @@ export const translations = {
     exitMsg: 'Thanks for visiting!',
     connectionClosed: 'Connection closed.',
     commandNotFound: 'Command not found',
-    langChanged: 'Language changed to',
     langCurrent: 'Current language',
     langAvailable: 'Available',
   },
@@ -88,6 +91,10 @@ export const translations = {
     // Categories
     frontend: 'Frontend',
     backend: 'Backend',
+    testing: 'Testing & QA',
+    architecture: 'Arquitectura',
+    cloud: 'Cloud & DevOps',
+    database: 'Bases de Datos',
     tools: 'Herramientas',
     soft: 'Habilidades Blandas',
 
@@ -97,7 +104,6 @@ export const translations = {
     exitMsg: '¡Gracias por visitar!',
     connectionClosed: 'Conexión cerrada.',
     commandNotFound: 'Comando no encontrado',
-    langChanged: 'Idioma cambiado a',
     langCurrent: 'Idioma actual',
     langAvailable: 'Disponibles',
   },
@@ -135,6 +141,10 @@ export const translations = {
     // Categories
     frontend: '01000110 01110010 01101111 01101110 01110100',
     backend: '01000010 01100001 01100011 01101011',
+    testing: '01010100 01100101 01110011 01110100',
+    architecture: '01000001 01110010 01100011 01101000',
+    cloud: '01000011 01101100 01101111 01110101 01100100',
+    database: '01000100 01000010',
     tools: '01010100 01101111 01101111 01101100 01110011',
     soft: '01010011 01101111 01100110 01110100',
 
@@ -144,7 +154,6 @@ export const translations = {
     exitMsg: '01000010 01111001 01100101!',
     connectionClosed: '01000100 01101001 01110011 01100011 01101111 01101110 01101110 01100101 01100011 01110100',
     commandNotFound: '01000101 01010010 01010010 00110100 00110000 00110100',
-    langChanged: '01001100 01100001 01101110 01100111:',
     langCurrent: '01001100 01100001 01101110 01100111',
     langAvailable: ':',
   },

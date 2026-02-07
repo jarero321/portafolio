@@ -40,13 +40,15 @@ export interface Project {
   tech: string[];
   url?: string;
   github?: string;
+  npm?: string;
   featured?: boolean;
+  category?: 'ai-tools' | 'cli' | 'web' | 'fintech';
 }
 
 export interface Skill {
   name: string;
   level: number; // 0-100
-  category: 'frontend' | 'backend' | 'tools' | 'soft';
+  category: 'frontend' | 'backend' | 'testing' | 'architecture' | 'cloud' | 'database' | 'tools' | 'soft';
 }
 
 export interface Experience {
@@ -55,6 +57,7 @@ export interface Experience {
   period: string;
   description: string;
   tech?: string[];
+  highlights?: string[];
 }
 
 export interface Education {
